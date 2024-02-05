@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Experiments</title>
+</head>
+<body>
+<h1> Working with Image Objects</h1>
+<div><img src="media/HappyFaceNoSmile.jpg" alt="Simley Face"></div>
+
+<script>
+    "use strict";
+    const imgTag = document.querySelector("img");
+    // preload the image so that there is no time gap when the mouseover occurs
+    let preloadedImage = new Image();
+    preloadedImage.src = "media/HappyFaceSmile.jpg"
+
+    imgTag.onmouseover = function () {
+        //imgTag.src= "media/HappyFaceSmile.jpg"
+        imgTag.src= preloadedImage.src;
+    };
+
+   imgTag.onmouseout = function () {
+        imgTag.src= "media/HappyFaceNoSmile.jpg"
+    };
+
+</script>
+
+</body>
+</html>

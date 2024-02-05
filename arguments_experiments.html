@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arguments Experiments</title>
+</head>
+<body>
+<h1>Argument Experiments</h1>
+
+<script>
+    "use strict";
+    const sampleArray = [1,1,2,3,5,8];
+    function add2(a,b=6){
+        return a + b;
+    }
+
+    function addArray(arValues){
+        let sum = 0;
+        for (let i = 0; i < arValues.length; i++) {
+            sum += arValues[i]
+        }
+        return sum;
+    }
+
+    function addArgs(){
+        let sum = 0;
+        for (let i = 0; i < arguments.length; i++) {
+            sum += arguments[i]
+        }
+        return sum;
+    }
+    document.write("<p> Sum of two numbers is" + add2(7,24) + "</p>");
+    document.write(`<p> Sum of number plus the default is ${add2(7)} </p> `);
+    document.write("<p>Sum of the array " + sampleArray + " is " + addArray(sampleArray) + "</p>");
+    document.write("<p> Sum of the array" + sampleArray + " is "+ addArgs(1,1,2,3,5,8) +"</p>" );
+    let b = new Object();
+    b.name = "Batman"; // we can add properties to objects
+    b.rivals = ["Joker", "Poison Ivy"]; // properties can be other objects, such as arrays
+    b.greet = function() { return "Hi, I’m " + this.name; }
+    b.nme = "Bruce"
+    b["key"] = 100
+    b["city"] = "Regina"
+    console.log(b)
+    console.log(b.rivals)
+    console.log(b["city"])
+    console.log(b["key"])
+    let prop
+    for (prop in b) {
+        console.log(prop + " = " + b[prop]);
+    }
+
+</script>
+
+</body>
+</html>

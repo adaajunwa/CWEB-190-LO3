@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example of showProps()</title>
+    <script src="scripts/showprops.js"></script>
+</head>
+<body>
+<h1>Example of showProps() function on an object</h1>
+<div id="output"></div>
+<script>
+    "use strict";
+    const myObject = {
+        hardAssignment: "Java",
+        bestTeacher:"Bryce",
+        nextPeriod:"Lunch Time"
+    }
+    document.getElementById("output").innerHTML = showProps("My Object", myObject);
+</script>
+</body>
+</html>

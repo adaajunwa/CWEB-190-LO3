@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //The function gives the number of arguments in the function
+    function Args1(value1, value2, value3){
+        let result;
+        return result = Args1.length;//length property of a function give the number of arguments
+    }
+    document.write ("length of the arguments is " +Args1("Hello", 7, "puppy")+ "<br>")
+
+    // This function does the same as the function above
+    //Argument object of a function, stores the arguments like an array
+    function Args(){
+    let result;
+        return result = arguments.length;
+    }
+    document.write ("lenght of the arguments is " +Args("Hello", 7, "puppy")+ "<br>")
+
+    //...theArgs is a rest syntax that allows a function
+    // accept indefinite number of arguments,
+    // and stores the arguments in an array called theArgs
+    function sum(...theArgs) {
+        let total = 0;
+        for (let arg of theArgs) {
+            total += arg;
+        }
+        return total;
+    }
+    document.write ("Total is "+ sum(1,2,3,4,5) + "<b>")
+
+    //the reduce method works on array objects, it takes each array element
+    //and performs the mathematical calculation specified by its function argument
+    let numbers = [1, 2, 3,4];
+    function getSum(total, num) {
+        return total *=  num;
+    }
+    document.write ("<br> product of the array is "+ numbers.reduce(getSum) +"<br>");
+
+
+</script>
+
+
+
+</body>
+</html>

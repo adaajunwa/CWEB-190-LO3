@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="showprops.js"></script>
+    <script src="Instructor.js"></script>
+
+</head>
+<body>
+<p id = "output1"> </p>
+<p id = "output2">  </p>
+<script>
+
+    let instructor1 = {
+        name: "Mike",
+        officeNumber: "office",
+        quirks: "Beardy",
+    }
+
+    //Call function showprops using instructor1 as an argument and display
+    document.getElementById("output1").innerHTML = showProps("Instructor", instructor1);
+
+    //create a new instructor object (called instructor2)
+    // using the instructor constructor
+    const instructor2 = new Instructor("Ada", "348", "Diligent");
+    //Call function showprops using instructor2 as an argument and display
+    // this displays each function and property
+    document.getElementById("output2").innerHTML =  showProps("Instructor", instructor2) ;
+
+
+
+
+    //assign the paragraph to outputDiv, all the displayInfo1 function
+    // using the instructor2 object, and display
+    let outputDiv= document.getElementById("output2")
+        //outputDiv.innerHTML += displayInfo1(instructor2) + "<br/>"
+
+
+
+
+    /*Use the constructor method (displayinfo), and display results for instructor2
+    Note that program property is the constructor's default */
+    outputDiv.innerHTML += instructor2.displayinfo() + "<br/>"
+
+    //object prototypes
+    /*function myObj (city, greet){
+   this.city = city;
+  this.greet= function() {
+    return "Greetings from " + this.city;
+  }
+  }
+  myObj1 = new myObj("Madrid")
+  document.write(myObj1.toString())*/
+
+
+    //create a new instructor object to show overrides
+    const instructor3 = new Instructor("Susan", "Ave W", "Fictional");
+    instructor3.program = "Communications";// Overrides the program method in the constructor*/
+
+    //Display instructor3 properties and methods
+    outputDiv.innerHTML += "<br />" + showProps("Instructor", instructor3);
+    //Use the constructor method (displayinfo), and display result for instructor3
+    outputDiv.innerHTML += instructor3.displayinfo();
+
+
+</script>
+
+</body>
+</html>

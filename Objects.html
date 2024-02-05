@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Using Object Literal Notation
+    /*let s = {
+        name: "Spider-Man",
+        age: 19,
+        rivals: ["Doc Oc"],
+        greet: function () {
+            return "Never fear! " + this.name + " is here!";
+        },
+    }
+    document.write(s.greet()) //to show the greeting
+console.log(s)
+    console.log(s.city = "New York");*/
+
+    //Using Associative Arrays
+    //console.log(s["city"] = "New York");
+    /*let r = new Object()
+        r["name"] = "Robin";
+        r["city"]= "Regina";
+
+    let prop;
+    for (prop in r) {
+        console.log(prop + " = " + r[prop]);
+    }*/
+    /***** for (prop in s) {
+        console.log(prop + " = " + s[prop]);
+    }*/
+
+    //Using Constructors
+    function Person(name, occ, city, rivals) {
+        this.name = name;
+        this.occupation = occ;
+        this.city = city;
+        this.rivals = rivals; // would make a shallow copy of the array passed in
+    }
+let person = new Person("Pet", "Dancer", "Pitsburg", ["Joker", "Riddler"])
+    for (item in person) {
+        console.log(item + " = " + person[item]);
+    }
+
+
+
+    /*let b = new Object();
+    b.name = "Batman";
+    b.rivals = ["Joker", "Poison Ivy"];
+    b.greet = function() { return "Hi, I’m " + this.name; }
+    console.log(b);
+    console.log(b.name, b.rivals, b.greet)
+   document.write(b.greet())*/
+</script>
+</body>
+</html>

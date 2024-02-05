@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>My birthday is <span id = "Birth">Birth</span></p>
+<p>Today's date is <span id = "Date">Date</span></p>
+<p>The date 90 days from now is <span id = "Date1">Date</span></p>
+<script>
+    let birth = document.getElementById("Birth")
+    let date = document.getElementById("Date")
+    let date1 = document.getElementById("Date1")
+    let monthAr = [ "Jan","Feb", "Mar", "Apr"]
+    birth.innerHTML = new Date()
+    date.innerHTML = new Date( "June 20, 1969" );
+    dd  = new Date()
+    dd.setDate(dd.getDate()+90)
+    date1.innerHTML =  monthAr[dd.getMonth()]+ " " + dd.getDate()+ " "+ dd.getFullYear()
+</script>
+
+</body>
+</html>

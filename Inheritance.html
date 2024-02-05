@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id = "output"> </p>
+<script>
+    function Pet(name, type, licensed) {
+        this.name = name; /* setting properties */
+        this.animalType = type;
+        this.licensed = licensed;
+    }
+
+    /* add methods to prototype so that all Pet objects share one copy of the method */
+    Pet.prototype.toString = function() {
+        return this.name + " is a(n) " + this.animalType + " whose licensed status is " + this.licensed;
+    };
+    Pet.prototype.sound = function() {
+        return this.name + " the " + this.animalType + " makes noise.";
+    };
+
+
+    /* create a Pet object using the new operator */
+    let pet1 = new Pet("Fluffy", "cat", true);
+    document.getElementById("output").innerHTML = "<p>" + pet1.toString() + "</p>";
+
+    //SHOW INHERITANCE STEPS
+
+    /* Fish is going to inherit from the Pet constructor */
+    function Fish(name, licensed, species) {
+        Pet.call(this, name, "fish", licensed);//call parent’s constructor
+        this.species = species;
+    }
+
+    /* Fish prototype object must be directed to the Pet prototype
+       Set the child’s prototype to an object of the Parent’s type */
+    Fish.prototype = Object.create(Pet.prototype);
+
+    /* To reset the constructor property of the Fish prototype
+       Set the child’s constructor property back to its own name */
+    Object.defineProperty(Fish.prototype, 'constructor', {
+        value: Fish,
+        enumerable: false,
+        writable: true
+    });
+
+    //create a new fish object called fish1 and display the tostring method
+    let fish1 = new Fish("Poodie", "Gold fish", true);
+    document.getElementById("output").innerHTML += "<br>" + fish1.toString();
+
+    //Override the sound method in its parent class (Pet)
+    Fish.prototype.sound = function() {
+        return this.name +  " swims in silence";
+    };
+    //Display overridden method
+    document.getElementById("output").innerHTML += "<br>" + fish1.sound() ;
+
+    /* Classes can also be created using the Class keyword
+       this is the same as creating the Pet class above using new ES2015 syntax */
+    class Pets {
+        constructor(name, type, licensed) { /* create constructor function using constructor keyword */
+            this.name = name;
+            this.animalType = type;
+            this.licensed = licensed;
+        }
+        toString() { /* methods go inside the class definition */
+            return this.name + " is a(n) " + this.animalType + " whose licensed status is " + this.licensed;
+        }
+        makesSound() {
+            return this.name + " the " + this.animalType + " makes noise.";
+        }
+    }
+
+    //Create inheritance using the extends and super keywords
+    class Dog extends Pets { /* use the extends keyword to create a subclass */
+        constructor(name, licensed, dangerous) {
+            super(name, "dog", licensed); /* makes a call to the parent's constructor with super */
+            this.dangerous = dangerous;
+        }
+
+        sound() {
+            return this.name + " the dog barks angrily :  says woof and wags its tail.";
+        }
+    }
+    //Create new Dog instance called dog1 and display its sound method
+    let dog1 = new Dog("Geenie", "German Shepherd", true);
+    document.getElementById("output").innerHTML += "<br>" + dog1.sound() ;
+</script>
+</body>
+</html>

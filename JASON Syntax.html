@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id = "demo"> </p>
+<script>
+    let vehicle = {
+        "make" : "Hyundai",
+        //In JavaScript, you can omit "" in property name if there's no space in the name
+        year: "2022",
+        //space in the property name, "" needed
+        "vehicle model": "Tucson",
+        "occupants": ["Michael", "Bryce"]
+    };
+    document.write (vehicle.make + ", "+ vehicle.year )
+//Functions can return object
+    function makePerson(firstName, birthYear) {
+        return {// returns an object
+            name: firstName,
+            age: 2019 - birthYear
+        };
+    }
+//create a new makePerson instance called person
+    let person = makePerson("Mike", 1968);
+    document.write ("<br> New person object name is " + person.name);
+
+    /* using JSON.stringify to convert a javascript object
+    to a JSON string notation*/
+    const obj = {name: "John", age: 30, city: "New York"};
+    const myJSON = JSON.stringify(obj);
+    document.getElementById("demo").innerHTML = myJSON;
+
+    /* Using JSON.parse to convert a Json string notation
+     to a Javascript object */
+    const txt = '{"name":"John", "age":30, "city":"New York"}'
+    const obj2 = JSON.parse(txt);
+    document.getElementById("demo").innerHTML += "<br>" + obj2.name + ", " + obj2.age;
+</script>
+</body>
+</html>

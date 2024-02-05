@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div><img src="media/HappyFaceNoSmile.jpg" alt="Smiley Face" id="img"/></div>
+<script>
+    let preloadedImage = new Image();
+    preloadedImage.src = "media/HappyFaceSmile.jpg";
+
+    document.getElementById("img").onmouseover = image
+    document.getElementById("img").onmouseout = imageout
+   function image(){
+       document.getElementById("img").src = "media/HappyFaceSmile.jpg"
+   }
+    function imageout(){
+        document.getElementById("img").src = "media/HappyFaceNoSmile.jpg"
+    }
+
+    function add2(a, b = 6) {
+        return a + b;
+    }
+
+    document.write("<p>Sum of two numbers is " + add2(3, 4) + "</p>");
+    document.write("<p>Sum of number plus the default is " + add2(3) + "</p>");
+
+</script>
+</body>
+</html>

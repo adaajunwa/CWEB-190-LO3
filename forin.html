@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listing  properties with for...in</title>
+</head>
+<body>
+<script>
+    "use strict";
+    const myObject = {
+        hardAssignment: "Java",
+        bestTeacher:"Bryce",
+        nextPeriod:"Lunch Time"
+    }
+
+    for(const property in myObject){
+      document.write(`<p> ${property} = ${myObject[property]} </p>`)
+    }
+
+</script>
+
+</body>
+</html>
